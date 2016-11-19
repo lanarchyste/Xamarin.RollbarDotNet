@@ -1,0 +1,35 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarDotNet.Android", "RollbarDotNet.Android\RollbarDotNet.Android.csproj", "{7A0F2817-2BAA-4E9C-A208-4D2FDE58F4F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarDotNet.iOS", "RollbarDotNet.iOS\RollbarDotNet.iOS.csproj", "{C4169EC1-5DB5-4FDD-8DF8-5C5075F0B339}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarDotNet", "RollbarDotNet\RollbarDotNet.csproj", "{7F280FD7-FF2E-4A6A-A66C-A2D4A14B65A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarDotNet.Abstractions", "RollbarDotNet.Abstractions\RollbarDotNet.Abstractions.csproj", "{5722A216-27EC-404C-A89D-3967BA412C29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A0F2817-2BAA-4E9C-A208-4D2FDE58F4F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A0F2817-2BAA-4E9C-A208-4D2FDE58F4F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A0F2817-2BAA-4E9C-A208-4D2FDE58F4F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A0F2817-2BAA-4E9C-A208-4D2FDE58F4F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4169EC1-5DB5-4FDD-8DF8-5C5075F0B339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4169EC1-5DB5-4FDD-8DF8-5C5075F0B339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4169EC1-5DB5-4FDD-8DF8-5C5075F0B339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4169EC1-5DB5-4FDD-8DF8-5C5075F0B339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F280FD7-FF2E-4A6A-A66C-A2D4A14B65A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F280FD7-FF2E-4A6A-A66C-A2D4A14B65A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F280FD7-FF2E-4A6A-A66C-A2D4A14B65A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F280FD7-FF2E-4A6A-A66C-A2D4A14B65A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5722A216-27EC-404C-A89D-3967BA412C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5722A216-27EC-404C-A89D-3967BA412C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5722A216-27EC-404C-A89D-3967BA412C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5722A216-27EC-404C-A89D-3967BA412C29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

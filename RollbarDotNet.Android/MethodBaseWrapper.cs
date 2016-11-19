@@ -1,0 +1,31 @@
+﻿using System;
+using System.Reflection;
+using RollbarDotNet.Abstractions;
+
+namespace RollbarDotNet.Android
+{
+	public class MethodBaseWrapper : IMethodBase
+	{
+		readonly MethodBase _methodBase;
+
+		public MethodBaseWrapper(MethodBase methodBase)
+		{
+			_methodBase = methodBase;
+		}
+
+		public string Name
+		{
+			get { return _methodBase.Name; }
+		}
+
+		public Type ReflectedType
+		{
+			get { return _methodBase.ReflectedType; }
+		}
+
+		public ParameterInfo[] GetParameters()
+		{
+			return _methodBase.GetParameters();
+		}
+	}
+}
