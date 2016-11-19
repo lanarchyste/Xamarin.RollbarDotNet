@@ -9,6 +9,7 @@ namespace RollbarDotNet.Android
         {
             FrameFactory.Init(FrameBuilder);
             Rollbar.Init(config);
+            Data.DefaultPlatform = "Android";
         }
 
         static Frame[] FrameBuilder(System.Exception exception)

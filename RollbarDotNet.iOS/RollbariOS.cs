@@ -9,6 +9,7 @@ namespace RollbarDotNet.iOS
         {
             FrameFactory.Init(FrameBuilder);
             Rollbar.Init(config);
+            Data.DefaultPlatform = "iOS";
         }
 
         static Frame[] FrameBuilder(System.Exception exception)

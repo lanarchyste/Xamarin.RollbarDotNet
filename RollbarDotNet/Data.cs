@@ -9,7 +9,7 @@ namespace RollbarDotNet
 	{
         private static readonly string NotifierAssemblyVersion = typeof(Data).GetTypeInfo().Assembly.GetName().Version.ToString(3);
 
-		public static string DefaultPlatform { get; set; } = "windows";
+		public static string DefaultPlatform { get; set; } = "Xamarin.Forms";
 
 		public static string DefaultLanguage { get; set; } = "c#";
 
@@ -97,7 +97,7 @@ namespace RollbarDotNet
 			{
 				return new Dictionary<string, string>
 				{
-					{ "name", "Rollbar.NET" },
+					{ "name", "Xamarin Rollbar.NET" },
 					{ "version", NotifierAssemblyVersion },
 				};
 			}
