@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RollbarDotNet.Abstractions
+namespace RollbarDotNet
 {
 	public class CodeContext
 	{

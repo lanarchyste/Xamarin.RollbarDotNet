@@ -1,9 +1,8 @@
 ﻿using System.Diagnostics;
-using RollbarDotNet.Abstractions;
 
 namespace RollbarDotNet.Android
 {
-	public class StackFrameWrapper : IStackFrame
+    public class StackFrameWrapper : IStackFrame
 	{
 		readonly StackFrame _stackFrame;
 

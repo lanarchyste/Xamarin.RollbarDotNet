@@ -2,7 +2,7 @@
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace RollbarDotNet.Abstractions
+namespace RollbarDotNet
 {
     public class Frame
 	{

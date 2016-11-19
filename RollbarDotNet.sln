@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarDotNet.iOS", "Rollba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarDotNet", "RollbarDotNet\RollbarDotNet.csproj", "{7F280FD7-FF2E-4A6A-A66C-A2D4A14B65A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarDotNet.Abstractions", "RollbarDotNet.Abstractions\RollbarDotNet.Abstractions.csproj", "{5722A216-27EC-404C-A89D-3967BA412C29}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +25,5 @@ Global
 		{7F280FD7-FF2E-4A6A-A66C-A2D4A14B65A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F280FD7-FF2E-4A6A-A66C-A2D4A14B65A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F280FD7-FF2E-4A6A-A66C-A2D4A14B65A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5722A216-27EC-404C-A89D-3967BA412C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5722A216-27EC-404C-A89D-3967BA412C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5722A216-27EC-404C-A89D-3967BA412C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5722A216-27EC-404C-A89D-3967BA412C29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

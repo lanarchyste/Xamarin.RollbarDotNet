@@ -1,14 +1,14 @@
 ﻿using System.Diagnostics;
 using System.Linq;
-using RollbarDotNet.Abstractions;
 
-namespace RollbarDotNet.Android
+namespace RollbarDotNet.iOS
 {
-    public static class RollbarDotNet
+    public static class Rollbar
     {
-        public static void Init()
+        public static void Init(RollbarConfig config = null)
         {
             FrameFactory.Init(FrameBuilder);
+            RollbarDotNet.Rollbar.Init(config);
         }
 
         static Frame[] FrameBuilder(System.Exception exception)

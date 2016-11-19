@@ -32,7 +32,6 @@
     <Compile Include="Server.cs" />
     <Compile Include="RollbarResult.cs" />
     <Compile Include="RollbarResponse.cs" />
-    <Compile Include="RollbarConfig.cs" />
     <Compile Include="RollbarClient.cs" />
     <Compile Include="Rollbar.cs" />
     <Compile Include="Request.cs" />
@@ -50,6 +49,12 @@
     <Compile Include="Client.cs" />
     <Compile Include="Body.cs" />
     <Compile Include="ArbitraryKeyConverter.cs" />
+    <Compile Include="CodeContext.cs" />
+    <Compile Include="Frame.cs" />
+    <Compile Include="FrameFactory.cs" />
+    <Compile Include="RollbarConfig.cs" />
+    <Compile Include="IStackFrame.cs" />
+    <Compile Include="IMethodBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -67,12 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RollbarDotNet.Abstractions\RollbarDotNet.Abstractions.csproj">
-      <Project>{5722A216-27EC-404C-A89D-3967BA412C29}</Project>
-      <Name>RollbarDotNet.Abstractions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

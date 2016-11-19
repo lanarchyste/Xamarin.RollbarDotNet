@@ -9,7 +9,7 @@ namespace RollbarDotNet
 		private static RollbarConfig _config;
 		private static Func<Person> _personFunc;
 
-		public static void Init(RollbarConfig config = null)
+        public static void Init(RollbarConfig config = null)
 		{
 			if (config == null)
 			{

@@ -1,10 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
-using RollbarDotNet.Abstractions;
 
 namespace RollbarDotNet
 {
-	public class Trace
+    public class Trace
 	{
 		public Trace(Frame[] frames, Exception exception)
 		{

@@ -1,4 +1,4 @@
-﻿namespace RollbarDotNet.Abstractions
+﻿namespace RollbarDotNet
 {
 	public interface IStackFrame
 	{

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Reflection;
-using RollbarDotNet.Abstractions;
 
 namespace RollbarDotNet.Android
 {
-	public class MethodBaseWrapper : IMethodBase
+    public class MethodBaseWrapper : IMethodBase
 	{
 		readonly MethodBase _methodBase;
 

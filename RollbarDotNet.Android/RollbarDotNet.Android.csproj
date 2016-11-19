@@ -46,7 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MethodBaseWrapper.cs" />
     <Compile Include="StackFrameWrapper.cs" />
-    <Compile Include="RollbarDotNet.cs" />
+    <Compile Include="Rollbar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -55,9 +55,9 @@
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RollbarDotNet.Abstractions\RollbarDotNet.Abstractions.csproj">
-      <Project>{5722A216-27EC-404C-A89D-3967BA412C29}</Project>
-      <Name>RollbarDotNet.Abstractions</Name>
+    <ProjectReference Include="..\RollbarDotNet\RollbarDotNet.csproj">
+      <Project>{7F280FD7-FF2E-4A6A-A66C-A2D4A14B65A9}</Project>
+      <Name>RollbarDotNet</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
