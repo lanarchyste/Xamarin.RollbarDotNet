@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Newtonsoft.Json;
 
 namespace RollbarDotNet
 {
 	public class Data
 	{
-		//private static readonly string NotifierAssemblyVersion = typeof(Data).Assembly.GetName().Version.ToString(3);
-		private static readonly string NotifierAssemblyVersion = "0.3.2.0";
+        private static readonly string NotifierAssemblyVersion = typeof(Data).GetTypeInfo().Assembly.GetName().Version.ToString(3);
 
 		public static string DefaultPlatform { get; set; } = "windows";
 
