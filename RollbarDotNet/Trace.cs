@@ -31,7 +31,7 @@ namespace RollbarDotNet
             if (!FrameFactory.IsInitialized || FrameFactory.Get == null)
 				throw new ArgumentNullException();
 
-            Frames = FrameFactory.Get(exception);
+            Frames = FrameFactory.Get.Invoke(exception);
 			Exception = new Exception(exception);
 		}
 

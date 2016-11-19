@@ -17,12 +17,6 @@ namespace RollbarDotNet
 			Config = config;
 		}
 
-		/*public Guid PostItem(Payload payload)
-		{
-			var stringResult = SendPost("item/", payload);
-			return ParseResponse(stringResult);
-		}*/
-
 		public async Task<Guid> PostItemAsync(Payload payload)
 		{
 			var stringResult = await SendPostAsync("item/", payload);
@@ -34,12 +28,6 @@ namespace RollbarDotNet
 			var response = JsonConvert.DeserializeObject<RollbarResponse>(stringResult);
 			return Guid.Parse(response.Result.Uuid);
 		}
-
-		/*private string SendPost<T>(string url, T payload)
-		{
-			//var webClient = new WebClient();
-			//return webClient.UploadString(new Uri($"{Config.EndPoint}{url}"), JsonConvert.SerializeObject(payload));
-		}*/
 
 		private async Task<string> SendPostAsync<T>(string url, T payload)
 		{

@@ -46,7 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MethodBaseWrapper.cs" />
     <Compile Include="StackFrameWrapper.cs" />
-    <Compile Include="Rollbar.cs" />
+    <Compile Include="RollbarAndroid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

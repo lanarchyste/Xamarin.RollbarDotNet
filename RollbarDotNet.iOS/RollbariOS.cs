@@ -3,12 +3,12 @@ using System.Linq;
 
 namespace RollbarDotNet.iOS
 {
-    public static class Rollbar
+    public static class RollbariOS
     {
         public static void Init(RollbarConfig config = null)
         {
             FrameFactory.Init(FrameBuilder);
-            RollbarDotNet.Rollbar.Init(config);
+            Rollbar.Init(config);
         }
 
         static Frame[] FrameBuilder(System.Exception exception)
