@@ -1,12 +1,6 @@
 # Rollbar.NET
 
-A .NET Rollbar Client that is not ASP.NET specific.
-
-## Install
-
-Nuget Package Manager:
-
-    Install-Package Rollbar
+A .NET Rollbar Client for Xamarin Forms.
 
 ## Basic Usage
 
