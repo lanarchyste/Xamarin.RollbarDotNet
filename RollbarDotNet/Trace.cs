@@ -5,7 +5,7 @@ namespace RollbarDotNet
 {
     public class Trace
 	{
-		public Trace(Frame[] frames, Exception exception)
+		public Trace(Frame[] frames, RollbarException exception)
 		{
 			if (frames == null)
 			{
@@ -32,13 +32,13 @@ namespace RollbarDotNet
 				throw new ArgumentNullException();
 
             Frames = FrameFactory.Get.Invoke(exception);
-			Exception = new Exception(exception);
+			Exception = new RollbarException(exception);
 		}
 
 		[JsonProperty("frames", Required = Required.Always)]
 		public Frame[] Frames { get; private set; }
 
 		[JsonProperty("exception", Required = Required.Always)]
-		public Exception Exception { get; private set; }
+		public RollbarException Exception { get; private set; }
 	}
 }

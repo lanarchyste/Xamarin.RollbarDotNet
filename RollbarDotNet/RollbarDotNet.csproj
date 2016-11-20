@@ -42,7 +42,7 @@
     <Compile Include="JavascriptClient.cs" />
     <Compile Include="IRollbarClient.cs" />
     <Compile Include="HasArbitraryKeys.cs" />
-    <Compile Include="Exception.cs" />
+    <Compile Include="RollbarException.cs" />
     <Compile Include="ErrorLevelConverter.cs" />
     <Compile Include="ErrorLevel.cs" />
     <Compile Include="Data.cs" />
