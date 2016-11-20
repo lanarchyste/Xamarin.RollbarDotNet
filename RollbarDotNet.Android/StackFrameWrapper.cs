@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace RollbarDotNet.Android
+namespace RollbarDotNet.Droid
 {
     public class StackFrameWrapper : IStackFrame
 	{

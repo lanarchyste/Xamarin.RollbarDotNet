@@ -6,7 +6,7 @@
     <ProjectGuid>{7A0F2817-2BAA-4E9C-A208-4D2FDE58F4F1}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>RollbarDotNet.Android</RootNamespace>
+    <RootNamespace>RollbarDotNet.Droid</RootNamespace>
     <AssemblyName>RollbarDotNet.Android</AssemblyName>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
@@ -46,7 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MethodBaseWrapper.cs" />
     <Compile Include="StackFrameWrapper.cs" />
-    <Compile Include="RollbarAndroid.cs" />
+    <Compile Include="Rollbar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

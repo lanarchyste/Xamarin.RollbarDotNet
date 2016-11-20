@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MethodBaseWrapper.cs" />
-    <Compile Include="RollbariOS.cs" />
+    <Compile Include="Rollbar.cs" />
     <Compile Include="StackFrameWrapper.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace RollbarDotNet.Android
+namespace RollbarDotNet.Droid
 {
     public class MethodBaseWrapper : IMethodBase
 	{

@@ -1,15 +1,15 @@
 ﻿using System.Diagnostics;
 using System.Linq;
 
-namespace RollbarDotNet.Android
+namespace RollbarDotNet.Droid
 {
-    public static class RollbarAndroid
+    public static class Rollbar
     {
         public static void Init(RollbarConfig config = null)
         {
-            FrameFactory.Init(FrameBuilder);
-            Rollbar.Init(config);
             Data.DefaultPlatform = "Android";
+            FrameFactory.Init(FrameBuilder);
+            RollbarDotNet.Rollbar.Current = new RollbarImplementation(config);
         }
 
         static Frame[] FrameBuilder(System.Exception exception)

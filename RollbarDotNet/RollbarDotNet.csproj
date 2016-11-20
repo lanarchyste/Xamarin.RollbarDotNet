@@ -55,6 +55,8 @@
     <Compile Include="RollbarConfig.cs" />
     <Compile Include="IStackFrame.cs" />
     <Compile Include="IMethodBase.cs" />
+    <Compile Include="IRollbar.cs" />
+    <Compile Include="RollbarImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -74,4 +76,5 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
 </Project>

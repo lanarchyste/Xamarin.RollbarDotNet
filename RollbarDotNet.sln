@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarDotNet.Android", "RollbarDotNet.Android\RollbarDotNet.Android.csproj", "{7A0F2817-2BAA-4E9C-A208-4D2FDE58F4F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarDotNet.Droid", "RollbarDotNet.Android\RollbarDotNet.Droid.csproj", "{7A0F2817-2BAA-4E9C-A208-4D2FDE58F4F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollbarDotNet.iOS", "RollbarDotNet.iOS\RollbarDotNet.iOS.csproj", "{C4169EC1-5DB5-4FDD-8DF8-5C5075F0B339}"
 EndProject
