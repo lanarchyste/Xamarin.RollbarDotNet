@@ -115,47 +115,22 @@ None of the fields on `RollbarBody` are updatable, and all null fields in
 
 ## Examples
 
-### ASP.Net MVC
-
-To use inside an ASP.Net Application, first in your global.asax.cs and Application_Start method
-initialize Rollbar
+### Android
 
 ```csharp
-protected void Application_Start()
-{
-    ...
-    Rollbar.Init(new RollbarConfig
-    {
-        AccessToken = ConfigurationManager.AppSettings["Rollbar.AccessToken"],
-        Environment = ConfigurationManager.AppSettings["Rollbar.Environment"]
-    });
-    ...
-}
+RollbarDotNet.Droid.Rollbar.Init(new RollbarConfig("SERVER_TOKEN"));
 ```
 
-Then create a global action filter
+### iOS
 
 ```csharp
-public class RollbarExceptionFilter : IExceptionFilter
-{
-    public void OnException(ExceptionContext filterContext)
-    {
-        if (filterContext.ExceptionHandled)
-            return;
-
-        Rollbar.Report(filterContext.Exception);
-    }
-}
+RollbarDotNet.iOS.Rollbar.Init(new RollbarConfig("SERVER_TOKEN"));
 ```
 
-and finally add it to the global filters collection
+### PCL
 
 ```csharp
-private static void RegisterGlobalFilters(GlobalFilterCollection filters)
-{
-    ...
-    filters.Add(new RollbarExceptionFilter());
-}
+await Rollbar.Current.Report(ex, ErrorLevel.Error);
 ```
 
 ### Winforms
