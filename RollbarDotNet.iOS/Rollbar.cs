@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace RollbarDotNet.iOS
@@ -8,11 +9,12 @@ namespace RollbarDotNet.iOS
         public static void Init(RollbarConfig config = null)
         {
             Data.DefaultPlatform = "iOS";
+            Data.DefaultFramework = "CLR " + Environment.Version;
             FrameFactory.Init(FrameBuilder);
             RollbarDotNet.Rollbar.Current = new RollbarImplementation(config);
         }
 
-        static Frame[] FrameBuilder(System.Exception exception)
+        static Frame[] FrameBuilder(Exception exception)
         {
             var frames = new StackTrace(exception, true).GetFrames() ?? new StackFrame[0];
             return frames

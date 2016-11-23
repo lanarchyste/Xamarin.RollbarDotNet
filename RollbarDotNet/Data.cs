@@ -11,7 +11,9 @@ namespace RollbarDotNet
 
 		public static string DefaultPlatform { get; set; } = "Xamarin.Forms";
 
-		public static string DefaultLanguage { get; set; } = "c#";
+        public static string DefaultFramework { get; set; } = "Unknwon";
+
+		public static string DefaultLanguage { get; set; } = "C#";
 
 		public Data(string environment, Body body)
 		{
@@ -30,6 +32,7 @@ namespace RollbarDotNet
 			Timestamp = (long)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
 			Platform = DefaultPlatform;
 			Language = DefaultLanguage;
+            Framework = DefaultFramework;
 		}
 
 		[JsonProperty("environment", Required = Required.Always)]
