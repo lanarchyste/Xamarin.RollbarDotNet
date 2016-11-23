@@ -115,16 +115,22 @@ None of the fields on `RollbarBody` are updatable, and all null fields in
 
 ## Examples
 
-### Android
+### Xamarin.Forms Android
 
 ```csharp
 RollbarDotNet.Droid.Rollbar.Init(new RollbarConfig("SERVER_TOKEN"));
 ```
 
-### iOS
+### Xamarin.Forms iOS
+
+Initialize the rollbar plugin in the `AppDelegate.cs` class
 
 ```csharp
+[Init other plugins]
+...
 RollbarDotNet.iOS.Rollbar.Init(new RollbarConfig("SERVER_TOKEN"));
+...
+LoadApplication(new App());
 ```
 
 ### PCL
