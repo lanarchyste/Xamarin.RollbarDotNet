@@ -2,11 +2,9 @@
 
 A .NET Rollbar Client for Xamarin Forms.
 
-## Basic Usage
+## Prerequisites
 
-* Initialize Rollbar with `Rollbar.Init(new RollbarConfig("POST_SERVER_ACCESS_TOKEN"))`
-* Send errors to Rollbar with `Rollbar.Report(Exception)`
-* Send messages to Rollbar with `Rollbar.Report(string)`
+In all PCL projects where the Rollbar plugin is added, installed the following nuget packages :
 
 ## RollbarConfig
 
@@ -113,12 +111,18 @@ error (if it happened during an HTTP Request, of course)" (`RollbarRequest`),
 None of the fields on `RollbarBody` are updatable, and all null fields in
 `Rollbar.NET` are left off of the final JSON payload.
 
-## Examples
+## Basic Usage and Examples
 
 ### Xamarin.Forms Android
 
+Initialize the rollbar plugin in the `MainActivity.cs` class
+
 ```csharp
+[Init other plugins]
+...
 RollbarDotNet.Droid.Rollbar.Init(new RollbarConfig("SERVER_TOKEN"));
+...
+LoadApplication(new App());
 ```
 
 ### Xamarin.Forms iOS
@@ -137,34 +141,4 @@ LoadApplication(new App());
 
 ```csharp
 await Rollbar.Current.Report(ex, ErrorLevel.Error);
-```
-
-### Winforms
-
-To use inside a Winforms Application, do the following inside your main method:
-
-```csharp
-[STAThread]
-static void Main()
-{
-    Rollbar.Init(new RollbarConfig
-    {
-        AccessToken = "POST_SERVER_ACCESS_TOKEN",
-        Environment = "production"
-    });
-    Application.EnableVisualStyles();
-    Application.SetCompatibleTextRenderingDefault(false);
-
-    Application.ThreadException += (sender, args) =>
-    {
-        Rollbar.Report(args.Exception);
-    };
-
-    AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
-    {
-        Rollbar.Report(args.ExceptionObject as System.Exception);
-    };
-
-    Application.Run(new Form1());
-}
 ```
