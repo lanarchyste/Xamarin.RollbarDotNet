@@ -137,7 +137,7 @@ RollbarDotNet.iOS.Rollbar.Init(new RollbarConfig("SERVER_TOKEN"));
 LoadApplication(new App());
 ```
 
-### PCL
+### Xamarin.Forms PCL
 
 ```csharp
 await Rollbar.Current.Report(ex, ErrorLevel.Error);
