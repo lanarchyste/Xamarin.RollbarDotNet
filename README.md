@@ -1,6 +1,6 @@
 # Rollbar.NET
 
-A .NET Rollbar Client for Xamarin Forms, based on the project code (Rollbar.NET)[https://github.com/rollbar/Rollbar.NET]
+A .NET Rollbar Client for Xamarin Forms, based on the project code [Rollbar.NET](https://github.com/rollbar/Rollbar.NET)
 
 ## Prerequisites
 
