@@ -8,8 +8,8 @@ namespace RollbarDotNet.iOS
     {
         public static void Init(RollbarConfig config = null)
         {
-            Data.DefaultPlatform = "iOS";
-            Data.DefaultFramework = "CLR " + Environment.Version;
+            Data.SetPlatform("iOS");
+            Data.SetFramework("CLR " + Environment.Version);
             FrameFactory.Init(FrameBuilder);
             RollbarDotNet.Rollbar.Current = new RollbarImplementation(config);
         }

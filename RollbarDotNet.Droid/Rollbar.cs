@@ -8,8 +8,8 @@ namespace RollbarDotNet.Droid
     {
         public static void Init(RollbarConfig config = null)
         {
-            Data.DefaultPlatform = "Android";
-            Data.DefaultFramework = "CLR " + Environment.Version;
+            Data.SetPlatform("Android");
+            Data.SetFramework("CLR " + Environment.Version);
             FrameFactory.Init(FrameBuilder);
             RollbarDotNet.Rollbar.Current = new RollbarImplementation(config);
         }
