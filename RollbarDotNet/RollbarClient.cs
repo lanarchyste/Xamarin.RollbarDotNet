@@ -27,7 +27,17 @@ namespace RollbarDotNet
                 return Guid.Empty;
 
             var response = JsonConvert.DeserializeObject<RollbarResponse>(stringResult);
-            return Guid.Parse(response.Result.Uuid);
+            if (response.Error > 0)
+            {
+                Debug.WriteLine("[RollbarDotNet] Unable to parse the response. Error : " + response.Error);
+                return Guid.Empty;
+            }
+
+            Guid uuid;
+            if (Guid.TryParse(response.Result.Uuid, out uuid))
+                return uuid;
+
+            return Guid.Empty;
         }
 
         async Task<string> SendPostAsync<T>(string url, T payload)
@@ -42,7 +52,7 @@ namespace RollbarDotNet
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[RollbarDotNet] Unable to post report");
+                Debug.WriteLine("[RollbarDotNet] The request sent to the api failed.");
                 Debug.WriteLine(ex);
                 return string.Empty;
             }
