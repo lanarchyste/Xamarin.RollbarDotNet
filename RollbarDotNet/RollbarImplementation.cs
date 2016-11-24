@@ -6,15 +6,13 @@ namespace RollbarDotNet
 {
     public class RollbarImplementation : IRollbar
     {
-        private static RollbarConfig _config;
-        private static Func<Person> _personFunc;
+        static RollbarConfig _config;
+        static Func<Person> _personFunc;
 
         public RollbarImplementation(RollbarConfig config = null)
         {
             if (config == null)
-            {
                 config = new RollbarConfig();
-            }
 
             _config = config;
         }
@@ -24,7 +22,7 @@ namespace RollbarDotNet
             _personFunc = personFunc;
         }
 
-        public async Task<Guid?> Report(System.Exception e, ErrorLevel? level = ErrorLevel.Error, IDictionary<string, object> custom = null)
+        public async Task<Guid?> Report(Exception e, ErrorLevel? level = ErrorLevel.Error, IDictionary<string, object> custom = null)
         {
             return await SendBody(new Body(e), level, custom);
         }
@@ -34,12 +32,10 @@ namespace RollbarDotNet
             return await SendBody(new Body(new Message(message)), level, custom);
         }
 
-        private static async Task<Guid?> SendBody(Body body, ErrorLevel? level, IDictionary<string, object> custom)
+        static async Task<Guid?> SendBody(Body body, ErrorLevel? level, IDictionary<string, object> custom)
         {
             if (string.IsNullOrWhiteSpace(_config.AccessToken) || _config.Enabled == false)
-            {
                 return null;
-            }
 
             var guid = Guid.NewGuid();
 

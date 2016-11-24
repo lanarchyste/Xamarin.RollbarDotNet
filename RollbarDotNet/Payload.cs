@@ -8,14 +8,10 @@ namespace RollbarDotNet
 		public Payload(string accessToken, Data data)
 		{
 			if (string.IsNullOrWhiteSpace(accessToken))
-			{
 				throw new ArgumentNullException(nameof(accessToken));
-			}
 
 			if (data == null)
-			{
 				throw new ArgumentNullException(nameof(data));
-			}
 
 			AccessToken = accessToken;
 			Data = data;
