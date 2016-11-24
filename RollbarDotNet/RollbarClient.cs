@@ -23,21 +23,30 @@ namespace RollbarDotNet
 
         static Guid ParseResponse(string stringResult)
         {
-            if (string.IsNullOrEmpty(stringResult))
-                return Guid.Empty;
-
-            var response = JsonConvert.DeserializeObject<RollbarResponse>(stringResult);
-            if (response.Error > 0)
+            try
             {
-                Debug.WriteLine("[RollbarDotNet] Unable to parse the response. Error : " + response.Error);
+                if (string.IsNullOrEmpty(stringResult))
+                    return Guid.Empty;
+
+                var response = JsonConvert.DeserializeObject<RollbarResponse>(stringResult);
+                if (response.Error > 0 || response.Result == null)
+                {
+                    Debug.WriteLine("[RollbarDotNet] Unable to deserialize the response of the request.");
+                    return Guid.Empty;
+                }
+
+                Guid uuid;
+                if (Guid.TryParse(response.Result.Uuid, out uuid))
+                    return uuid;
+
                 return Guid.Empty;
             }
-
-            Guid uuid;
-            if (Guid.TryParse(response.Result.Uuid, out uuid))
-                return uuid;
-
-            return Guid.Empty;
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[RollbarDotNet] Unable to parse the response of the request.");
+                Debug.WriteLine(ex);
+                return Guid.Empty;
+            }
         }
 
         async Task<string> SendPostAsync<T>(string url, T payload)
