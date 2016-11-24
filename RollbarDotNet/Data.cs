@@ -5,35 +5,68 @@ using Newtonsoft.Json;
 
 namespace RollbarDotNet
 {
-	public class Data
-	{
-        private static readonly string NotifierAssemblyVersion = typeof(Data).GetTypeInfo().Assembly.GetName().Version.ToString(3);
+    public class Data
+    {
+        static readonly string NotifierAssemblyVersion = typeof(Data).GetTypeInfo().Assembly.GetName().Version.ToString(3);
 
-		public static string DefaultPlatform { get; set; } = "Xamarin.Forms";
+        const string defaultValue = "Unknown";
 
-        public static string DefaultFramework { get; set; } = "Unknwon";
+        const string defaultPlatform = defaultValue;
+        const string defaultFramework = defaultValue;
+        const string defaultLanguage = "C#";
+        const string defaultVersion = defaultValue;
+        const string defaultModel = defaultValue;
+        const string defaultOsVersion = defaultValue;
 
-		public static string DefaultLanguage { get; set; } = "C#";
+        static string _platform;
+        static string _framework;
+        static string _version;
+        static string _model;
+        static string _osVersion;
 
 		public Data(string environment, Body body)
 		{
 			if (string.IsNullOrWhiteSpace(environment))
-			{
 				throw new ArgumentNullException(nameof(environment));
-			}
 
 			if (body == null)
-			{
 				throw new ArgumentNullException(nameof(body));
-			}
 
 			Environment = environment;
 			Body = body;
 			Timestamp = (long)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
-			Platform = DefaultPlatform;
-			Language = DefaultLanguage;
-            Framework = DefaultFramework;
+            Platform = string.IsNullOrEmpty(_platform) ? defaultPlatform : _platform;
+            Language = defaultLanguage;
+            Framework = string.IsNullOrEmpty(_framework) ? defaultFramework : _framework;
+            Model = string.IsNullOrEmpty(_model) ? defaultModel : _model;
+            AppVersion = string.IsNullOrEmpty(_version) ? defaultVersion : _version;
+            OSVersion = string.IsNullOrEmpty(_osVersion) ? defaultOsVersion : _osVersion;
 		}
+
+        public static void SetFramework(string framework)
+        {
+            _framework = framework;
+        }
+
+        public static void SetPlatform(string platform)
+        {
+            _platform = platform;
+        }
+
+        public static void SetModel(string model)
+        {
+            _model = model;
+        }
+
+        public static void SetAppVersion(string version)
+        {
+            _version = version;
+        }
+
+        public static void SetOSVersion(string osVersion)
+        {
+            _osVersion = osVersion;
+        }
 
 		[JsonProperty("environment", Required = Required.Always)]
 		public string Environment { get; private set; }
@@ -57,7 +90,7 @@ namespace RollbarDotNet
 		public string Language { get; set; }
 
 		[JsonProperty("framework", DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Framework { get; set; }
+        public string Framework { get; set; }
 
 		[JsonProperty("context", DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Context { get; set; }
@@ -85,6 +118,15 @@ namespace RollbarDotNet
 
 		[JsonProperty("uuid", DefaultValueHandling = DefaultValueHandling.Ignore)]
 		public string Uuid { get; set; }
+
+        [JsonProperty("model", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Model { get; set; }
+
+        [JsonProperty("version.app", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string AppVersion { get; set; }
+
+        [JsonProperty("version.os", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string OSVersion { get; set; }
 
 		[JsonIgnore]
 		public Guid? GuidUuid
