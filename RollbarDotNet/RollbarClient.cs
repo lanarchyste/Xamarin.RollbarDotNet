@@ -21,6 +21,12 @@ namespace RollbarDotNet
             return ParseResponse(stringResult);
         }
 
+        public Guid PostItem(Payload payload)
+        {
+            var stringResult = SendPost("item/", payload);
+            return ParseResponse(stringResult);
+        }
+
         static Guid ParseResponse(string stringResult)
         {
             try
@@ -58,6 +64,24 @@ namespace RollbarDotNet
 
                 var result = await httpClient.PostAsync(url, new StringContent(JsonConvert.SerializeObject(payload)));
                 return await result.Content.ReadAsStringAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[RollbarDotNet] The request sent to the api failed.");
+                Debug.WriteLine(ex);
+                return string.Empty;
+            }
+        }
+
+        string SendPost<T>(string url, T payload)
+        {
+            try
+            {
+                var httpClient = new HttpClient();
+                httpClient.BaseAddress = (new Uri(Config.EndPoint));
+
+                var result = httpClient.PostAsync(url, new StringContent(JsonConvert.SerializeObject(payload))).Result;
+                return result.Content.ReadAsStringAsync().Result;
             }
             catch (Exception ex)
             {
