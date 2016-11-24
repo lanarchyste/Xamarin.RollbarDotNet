@@ -1,12 +1,17 @@
 # Rollbar.NET
 
-A .NET Rollbar Client for Xamarin Forms.
+A .NET Rollbar Client for Xamarin Forms, based on the project code [Rollbar.NET](https://github.com/rollbar/Rollbar.NET)
 
-## Basic Usage
+## Prerequisites
 
-* Initialize Rollbar with `Rollbar.Init(new RollbarConfig("POST_SERVER_ACCESS_TOKEN"))`
-* Send errors to Rollbar with `Rollbar.Report(Exception)`
-* Send messages to Rollbar with `Rollbar.Report(string)`
+In the Android and iOS projects, install the following package:
+* Json.NET 9.0.1
+
+In all PCL projects where the Rollbar plugin is added, installed the following nuget packages :
+* Json.NET 9.0.1
+* Microsoft HTTP Client Libraries 2.2.29
+* Microsoft BCL Portability Pack 1.1.10
+* Microsoft BCL Build Components 1.0.21 
 
 ## RollbarConfig
 
@@ -113,77 +118,34 @@ error (if it happened during an HTTP Request, of course)" (`RollbarRequest`),
 None of the fields on `RollbarBody` are updatable, and all null fields in
 `Rollbar.NET` are left off of the final JSON payload.
 
-## Examples
+## Basic Usage and Examples
 
-### ASP.Net MVC
+### Xamarin.Forms Android
 
-To use inside an ASP.Net Application, first in your global.asax.cs and Application_Start method
-initialize Rollbar
+Initialize the rollbar plugin in the `MainActivity.cs` class
 
 ```csharp
-protected void Application_Start()
-{
-    ...
-    Rollbar.Init(new RollbarConfig
-    {
-        AccessToken = ConfigurationManager.AppSettings["Rollbar.AccessToken"],
-        Environment = ConfigurationManager.AppSettings["Rollbar.Environment"]
-    });
-    ...
-}
+[Init other plugins]
+...
+RollbarDotNet.Droid.Rollbar.Init(new RollbarConfig("SERVER_TOKEN"));
+...
+LoadApplication(new App());
 ```
 
-Then create a global action filter
+### Xamarin.Forms iOS
+
+Initialize the rollbar plugin in the `AppDelegate.cs` class
 
 ```csharp
-public class RollbarExceptionFilter : IExceptionFilter
-{
-    public void OnException(ExceptionContext filterContext)
-    {
-        if (filterContext.ExceptionHandled)
-            return;
-
-        Rollbar.Report(filterContext.Exception);
-    }
-}
+[Init other plugins]
+...
+RollbarDotNet.iOS.Rollbar.Init(new RollbarConfig("SERVER_TOKEN"));
+...
+LoadApplication(new App());
 ```
 
-and finally add it to the global filters collection
+### Xamarin.Forms PCL
 
 ```csharp
-private static void RegisterGlobalFilters(GlobalFilterCollection filters)
-{
-    ...
-    filters.Add(new RollbarExceptionFilter());
-}
-```
-
-### Winforms
-
-To use inside a Winforms Application, do the following inside your main method:
-
-```csharp
-[STAThread]
-static void Main()
-{
-    Rollbar.Init(new RollbarConfig
-    {
-        AccessToken = "POST_SERVER_ACCESS_TOKEN",
-        Environment = "production"
-    });
-    Application.EnableVisualStyles();
-    Application.SetCompatibleTextRenderingDefault(false);
-
-    Application.ThreadException += (sender, args) =>
-    {
-        Rollbar.Report(args.Exception);
-    };
-
-    AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
-    {
-        Rollbar.Report(args.ExceptionObject as System.Exception);
-    };
-
-    Application.Run(new Form1());
-}
+await Rollbar.Current.Report(ex, ErrorLevel.Error);
 ```
