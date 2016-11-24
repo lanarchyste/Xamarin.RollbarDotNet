@@ -8,25 +8,19 @@ namespace RollbarDotNet
 		public Trace(Frame[] frames, RollbarException exception)
 		{
 			if (frames == null)
-			{
 				throw new ArgumentNullException(nameof(frames));
-			}
 
 			if (exception == null)
-			{
 				throw new ArgumentNullException(nameof(exception));
-			}
 
 			Frames = frames;
 			Exception = exception;
 		}
 
-		public Trace(System.Exception exception)
+		public Trace(Exception exception)
 		{
 			if (exception == null)
-			{
 				throw new ArgumentNullException(nameof(exception));
-			}
 
             if (!FrameFactory.IsInitialized || FrameFactory.Get == null)
 				throw new ArgumentNullException();

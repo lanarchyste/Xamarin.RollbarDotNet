@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace RollbarDotNet
 {
-	public class RollbarException
+    public class RollbarException
 	{
 		public RollbarException(string @class)
 		{
@@ -13,12 +13,11 @@ namespace RollbarDotNet
 		public RollbarException(Exception exception)
 		{
 			if (exception == null)
-			{
 				throw new ArgumentNullException(nameof(exception));
-			}
 
 			Class = exception.GetType().FullName;
-			Message = exception.Message;
+            Message = exception.Message;
+            Description = exception.StackTrace;
 		}
 
 		[JsonProperty("class", Required = Required.Always)]

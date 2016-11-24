@@ -10,9 +10,7 @@ namespace RollbarDotNet
 		public Message(string body)
 		{
 			if (string.IsNullOrWhiteSpace(body))
-			{
 				throw new ArgumentNullException(nameof(body));
-			}
 
 			Body = body;
 		}

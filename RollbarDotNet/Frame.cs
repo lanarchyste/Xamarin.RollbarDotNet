@@ -89,7 +89,7 @@ namespace RollbarDotNet
 
 		private static string GetMethod(IMethodBase method)
 		{
-			var methodName = method.Name;
+            var methodName = string.IsNullOrEmpty(method.Name) ? "unknown": method.Name;
 			if (method.ReflectedType != null)
 			{
 				methodName = string.Format("{0}.{1}", method.ReflectedType.FullName, methodName);

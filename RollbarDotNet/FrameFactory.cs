@@ -4,7 +4,7 @@ namespace RollbarDotNet
 {
     public static class FrameFactory
     {
-        public static void Init(Func<System.Exception, Frame[]> frameFactory)
+        public static void Init(Func<Exception, Frame[]> frameFactory)
         {
             Get = frameFactory;
             IsInitialized = true;
@@ -12,6 +12,6 @@ namespace RollbarDotNet
 
         public static bool IsInitialized { get; private set; }
 
-        public static Func<System.Exception, Frame[]> Get { get; private set; }
+        public static Func<Exception, Frame[]> Get { get; private set; }
     }
 }
