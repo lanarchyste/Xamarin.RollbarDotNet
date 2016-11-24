@@ -14,16 +14,19 @@ namespace RollbarDotNet.iOS
 
         public string Name
         {
-            get { return _methodBase.Name; }
+            get { return _methodBase?.Name; }
         }
 
         public Type ReflectedType
         {
-            get { return _methodBase.ReflectedType; }
+            get { return _methodBase?.ReflectedType; }
         }
 
         public ParameterInfo[] GetParameters()
         {
+            if (_methodBase == null)
+                return new ParameterInfo[0];
+
             return _methodBase.GetParameters();
         }
     }
