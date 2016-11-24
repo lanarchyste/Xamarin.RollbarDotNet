@@ -17,5 +17,10 @@ namespace RollbarDotNet
             }
             set { _value = value; }
         }
+
+        public static bool IsInitialized
+        {
+            get { return _value != null; }
+        }
     }
 }
