@@ -2,8 +2,8 @@
 
 namespace RollbarDotNet
 {
-	public class RollbarResponse
-	{
+    public class RollbarResponse
+    {
         [JsonConstructor]
         public RollbarResponse()
         {
@@ -12,8 +12,8 @@ namespace RollbarDotNet
         }
 
         [JsonProperty("err")]
-		public int Error { get; set; }
+        public int Error { get; set; }
 
-		public RollbarResult Result { get; set; }
-	}
+        public RollbarResult Result { get; set; }
+    }
 }

@@ -4,29 +4,29 @@ using Newtonsoft.Json;
 namespace RollbarDotNet
 {
     public class RollbarException
-	{
-		public RollbarException(string @class)
-		{
-			Class = @class;
-		}
+    {
+        public RollbarException(string @class)
+        {
+            Class = @class;
+        }
 
-		public RollbarException(Exception exception)
-		{
-			if (exception == null)
-				throw new ArgumentNullException(nameof(exception));
+        public RollbarException(Exception exception)
+        {
+            if (exception == null)
+                throw new ArgumentNullException(nameof(exception));
 
-			Class = exception.GetType().FullName;
+            Class = exception.GetType().FullName;
             Message = exception.Message;
             Description = exception.StackTrace;
-		}
+        }
 
-		[JsonProperty("class", Required = Required.Always)]
-		public string Class { get; private set; }
+        [JsonProperty("class", Required = Required.Always)]
+        public string Class { get; private set; }
 
-		[JsonProperty("message", DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Message { get; set; }
+        [JsonProperty("message", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Message { get; set; }
 
-		[JsonProperty("description", DefaultValueHandling = DefaultValueHandling.Ignore)]
-		public string Description { get; set; }
-	}
+        [JsonProperty("description", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Description { get; set; }
+    }
 }

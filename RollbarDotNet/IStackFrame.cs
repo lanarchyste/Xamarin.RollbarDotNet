@@ -1,17 +1,17 @@
 ﻿namespace RollbarDotNet
 {
-	public interface IStackFrame
-	{
-		string GetFileName();
+    public interface IStackFrame
+    {
+        string GetFileName();
 
-		IMethodBase GetMethod();
+        IMethodBase GetMethod();
 
-		int GetFileColumnNumber();
+        int GetFileColumnNumber();
 
-		int GetFileLineNumber();
+        int GetFileLineNumber();
 
-		int GetILOffset();
+        int GetILOffset();
 
-		int GetNativeOffset();
-	}
+        int GetNativeOffset();
+    }
 }
