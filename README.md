@@ -80,19 +80,27 @@ and this person will be attached to all future Rollbar calls.
 You can set the current model with a call to
 
 ```csharp
-RollbarDotNet.Data.SetModel("Samsung Galaxy S6");
+RollbarDotNet.Data.SetModel("model device");
 ```
 
 You can use the nuget plugin [Xam.Plugin.DeviceInfo](https://www.nuget.org/packages/Xam.Plugin.DeviceInfo/) to easily get the model.
 
 ## Application Version Data
 
-## OS Version Data
-
-You can set the current OS version wit a call to
+You can set the current application version with a call to
 
 ```csharp
-RollbarDotNet.Data.SetOSVersion("5.0");
+RollbarDotNet.Data.SetAppVersion("application version");
+```
+
+You can use the nuget plugin [Plugin.VersionTracking](https://www.nuget.org/packages/Plugin.VersionTracking/) to easily get the application version.
+
+## OS Version Data
+
+You can set the current OS version with a call to
+
+```csharp
+RollbarDotNet.Data.SetOSVersion("android version");
 ```
 
 You can use the nuget plugin [Xam.Plugin.DeviceInfo](https://www.nuget.org/packages/Xam.Plugin.DeviceInfo/) to easily get the OS version.
