@@ -65,7 +65,7 @@ new RollbarConfig
 You can set the current person data with a call to
 
 ```csharp
-Rollbar.PersonData(() => new Person
+Rollbar.Current.PersonData(() => new Person
 {
     Id = 123,
     Username = "rollbar",
@@ -74,6 +74,28 @@ Rollbar.PersonData(() => new Person
 ```
 
 and this person will be attached to all future Rollbar calls.
+
+## Model Data
+
+You can set the current model with a call to
+
+```csharp
+RollbarDotNet.Data.SetModel("Samsung Galaxy S6");
+```
+
+You can use the nuget plugin [Xam.Plugin.DeviceInfo](https://www.nuget.org/packages/Xam.Plugin.DeviceInfo/) to easily get the model.
+
+## Application Version Data
+
+## OS Version Data
+
+You can set the current OS version wit a call to
+
+```csharp
+RollbarDotNet.Data.SetOSVersion("5.0");
+```
+
+You can use the nuget plugin [Xam.Plugin.DeviceInfo](https://www.nuget.org/packages/Xam.Plugin.DeviceInfo/) to easily get the OS version.
 
 ## Advanced Usage
 
