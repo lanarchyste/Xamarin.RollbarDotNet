@@ -9,9 +9,6 @@ In the Android and iOS projects, install the following package:
 
 In all PCL projects where the Rollbar plugin is added, installed the following nuget packages :
 * Json.NET 9.0.1
-* Microsoft HTTP Client Libraries 2.2.29
-* Microsoft BCL Portability Pack 1.1.10
-* Microsoft BCL Build Components 1.0.21 
 
 ## RollbarConfig
 
