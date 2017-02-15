@@ -35,6 +35,7 @@ namespace RollbarDotNet
             Environment = environment;
             Body = body;
             Timestamp = (long)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+			Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss (zzz)");
             Platform = string.IsNullOrEmpty(_platform) ? defaultPlatform : _platform;
             Language = defaultLanguage;
             Framework = string.IsNullOrEmpty(_framework) ? defaultFramework : _framework;
@@ -79,6 +80,9 @@ namespace RollbarDotNet
 
         [JsonProperty("timestamp", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public long? Timestamp { get; set; }
+
+		[JsonProperty("date", DefaultValueHandling = DefaultValueHandling.Ignore)]
+		public string Date { get; set; }
 
         [JsonProperty("code_version", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string CodeVersion { get; set; }
